@@ -10,7 +10,6 @@ just decrypt using **base64 decrypter**.\
 and you got source code!
 
 # How to use this crack?
-try fix source code your self!/
 the best way is using **[Google](https://google.com)**
 
 # Why you release this?
