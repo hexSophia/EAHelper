@@ -12,7 +12,7 @@ from Crypto.PublicKey import RSA
 from bs4 import BeautifulSoup
 from selenium import webdriver
 #设置版本号
-version = 'CRACKED BY vul3e3'
+version = 'v2.6.3 modded hotfix2'
 expire = 'NEVER LOL'
 name = 'vul3e3'
 # 设置标题名称
@@ -34,11 +34,11 @@ else:
 os.system('cls')
 if language == 'zh_CN':
     print(u'欢迎您:' + name)
-    print(u'用户组:' + version)
+    print(u'版本:' + version)
     print(u'到期时间:' + expire)
 else:
     print(u'WelCome:' + name)
-    print(u'Usergroup:' + version)
+    print(u'Version:' + version)
     print(u'Expire:' + expire)
 if language == 'zh_CN':
     username = input('请输入EA账号:')
@@ -341,7 +341,7 @@ def autosupport():
     email = str(number) + '@outlook.com'
     # 打开帮助网页
     driver.get(
-        'https://help.ea.com/'+ region + '/contact-us/new/?product=origin&platform=pc&category=manage-my-account&issue=cant-log-in&isLoginForm=true&isContactForm=true')
+        'https://help.ea.com/'+ region + '/contact-us/new/?product=origin&platform=pc&category=manage-my-account&issue=cant-log-in&isLoginForm=true&isContactForm=true&unauth=true')
     time.sleep(8)
     try:
         # 点击同意条款
@@ -391,12 +391,15 @@ def end():
     print("""
 
 
-I lost my email, can you replace my email binding?
-I can't access my email, can you replace my email binding?
-My account is associated with the XX and XX platform.
-I successfully logged in my account.
-I created a new case.
-Thank you very much for your help, I have changed the password of the account, I can log in to it.""")
+    I lost my email, can you replace my email binding?
+    I can't access my email, can you replace my email binding?
+    My account is associated with the XX and XX platform.
+    I successfully logged in my account.
+    I created a new case.
+    Thank you very much for your help, I have changed the password of the account, I can log in to it.
+
+
+""")
 if __name__ == '__main__':
     '''getmyip()
     getloginpge()
