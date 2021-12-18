@@ -5,7 +5,7 @@ EA Helper Source Code
 very easyyyyy, they using pyinstaller\
 just using **[pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor)** to unpack exe\
 and use **[pycdc](https://github.com/zrax/pycdc)** decompile obs.pyc\
-and then **print trust**, you will got an base64 code\
+and then put **print(trust)** below **trust = xxxxxxx** and **remove last line**, **run the code**, you will got an base64 code\
 just decrypt using **base64 decrypter**.\
 and you got source code!
 
