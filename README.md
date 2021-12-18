@@ -16,6 +16,10 @@ the best way is using **[Google](https://google.com)**
 # Why you release this?
 because it funny
 
-# Files
+# Files (Newest version)
 **obs-orig.py** - decompile from obs.pyc, has b64 suck encrypt lol\
 **obs-b64decompile** - decompile from b64, the **real source**
+
+# Files (Older version)
+**obsv2-orig.py** - decompile from obs.pyc, has b64 suck encrypt lol\
+**obsv2-b64decompile** - decompile from b64, the **real source**
