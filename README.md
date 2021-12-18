@@ -17,9 +17,13 @@ the best way is using **[Google](https://google.com)**
 because it funny
 
 # Files (Newest version)
+*Version Ver2.6.3*\
+\
 **obs-orig.py** - decompile from obs.pyc, has b64 suck encrypt lol\
 **obs-b64decompile** - decompile from b64, the **real source**
 
 # Files (Older version)
+*Ver2.0*\
+\
 **obsv2-orig.py** - decompile from obs.pyc, has b64 suck encrypt lol\
 **obsv2-b64decompile** - decompile from b64, the **real source**
