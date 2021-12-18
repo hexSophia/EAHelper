@@ -32,3 +32,4 @@ because it funny
 *Ver2.6.3 release*
 \
 **EA-Helper.exe** - Cracked release
+**EA-Helper.py** - Cracked release source code
