@@ -28,7 +28,7 @@ because it funny
 **obsv2-b64decompile** - decompile from b64, the **real source**
 
 # Files (Release version)
-*Ver2.6.3 release*
+*Ver2.6.3 release*\
 \
-**EA-Helper.exe** - Cracked release
+**EA-Helper.exe** - Cracked release\
 **EA-Helper.py** - Cracked release source code
