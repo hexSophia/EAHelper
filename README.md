@@ -11,7 +11,7 @@ and you got source code!
 
 # How to use this crack?
 try fix source code your self!/
-ex. install all package from source code
+the best way is using **[Google](https://google.com)**
 
 # Why you release this?
 because it funny
