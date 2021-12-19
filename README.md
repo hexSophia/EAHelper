@@ -16,7 +16,7 @@ the best way is using **[Google](https://google.com)**
 you now need create a folder call **files** with **chromedriverlocation.txt** and  **language.txt**\
 \
 **chromedriverlocation.txt** - type your chromedriver location in this txt\
-**language** - type zh_CN for chinese language or just filled random thing that will changed to english language
+**language.txt** - type zh_CN for chinese language or just filled random thing that will changed to english language
 
 # Why you release this?
 because it funny
