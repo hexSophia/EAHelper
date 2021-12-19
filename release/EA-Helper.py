@@ -11,6 +11,21 @@ from Crypto.Cipher import PKCS1_v1_5 as Cipher_pkcs1_v1_5
 from Crypto.PublicKey import RSA
 from bs4 import BeautifulSoup
 from selenium import webdriver
+#reader
+if os.path.exists('./files/language.txt'):
+    with open('./files/language.txt') as f:
+        language = f.read()
+    if language == 'zh_CN':
+        os.system('chcp 936')
+        os.system('cls')
+else:
+    language = ''
+#reader2
+if os.path.exists('./files/chromedriverlocation.txt'):
+    with open('./files/chromedriverlocation.txt') as f:
+        chromedriverlocation = f.read()
+else:
+    chromedriverlocation = 'D:\chromedriver.exe'
 #设置版本号
 version = 'v2.6.3 modded hotfix2'
 expire = 'NEVER LOL'
@@ -24,13 +39,6 @@ headers = {
 
 #获取当前语言
 #language = locale.getdefaultlocale()[0]
-selectlang = input('chinese language?')
-chromedriverlocation = input('chromedriver location?')
-if selectlang == 'y' or 'Y' or 'yes' or 'YES' or '1' or 'True' or 'true':
-    os.system('chcp 936')
-    language = 'zh_CN'
-else:
-    language = ''
 os.system('cls')
 if language == 'zh_CN':
     print(u'欢迎您:' + name)
@@ -273,59 +281,69 @@ def getconnections():
 
 
 def getorder():
-    driver.get('https://myaccount.ea.com/cp-ui/orderhistory/index')
-    # 选择已完成
-    driver.find_element_by_xpath('//*[@id="category-dropdown"]/div[1]').click()
-    driver.find_element_by_xpath('//*[@id="category-dropdown"]/div[2]/div/div/div[1]/div[4]/a/span').click()
-    # 选择全部时间
-    driver.find_element_by_xpath('//*[@id="customdate-dropdown"]/div[1]').click()
-    driver.find_element_by_xpath('//*[@id="customdate-dropdown"]/div[2]/div/div/div[5]/a/span').click()
-    time.sleep(5)
-    html = driver.page_source
-    bsoup = BeautifulSoup(html, "lxml")
-    ordertime = bsoup.find_all('dd', class_="date")
-    description = bsoup.find_all('dd', class_="des")
-    price = bsoup.find_all('dd', class_="price color_orange")
-    # 获取前半段关键词
-    w1 = '<span>'
-    # 获取后半段关键词
-    w2 = '</span>'
-    # 获取前半段关键词
-    price1 = '>'
-    # 获取后半段关键词
-    price2 = '<'
-    pat = re.compile(w1 + '(.*?)' + w2, re.S)
-    price_pat = re.compile(price1 + '(.*?)' + price2, re.S)
-    pat_ordertime = pat.findall(str(ordertime))
-    pat_description = pat.findall(str(description))
-    pat_price = price_pat.findall(str(price))
-    info_ordertime = pat_ordertime[1]
-    info_description = pat_description[0]
-    info_price = pat_price[0]
-    if language == 'zh_CN':
-        print('订单名称:' + info_description)
-        print('订单时间:' + info_ordertime)
-        print('订单金额:' + info_price)
-    else:
-        print('Order name:' + info_description)
-        print('Order time:' + info_ordertime)
-        print('Order amount:' + info_price)
-    '''try:
+    try:
+        driver.get('https://myaccount.ea.com/cp-ui/orderhistory/index')
+        # 选择已完成
+        driver.find_element_by_xpath('//*[@id="category-dropdown"]/div[1]').click()
+        driver.find_element_by_xpath('//*[@id="category-dropdown"]/div[2]/div/div/div[1]/div[4]/a/span').click()
+        # 选择全部时间
+        driver.find_element_by_xpath('//*[@id="customdate-dropdown"]/div[1]').click()
+        driver.find_element_by_xpath('//*[@id="customdate-dropdown"]/div[2]/div/div/div[5]/a/span').click()
+        time.sleep(5)
+        html = driver.page_source
+        bsoup = BeautifulSoup(html, "lxml")
+        ordertime = bsoup.find_all('dd', class_="date")
+        description = bsoup.find_all('dd', class_="des")
+        price = bsoup.find_all('dd', class_="price color_orange")
+        # 获取前半段关键词
+        w1 = '<span>'
+        # 获取后半段关键词
+        w2 = '</span>'
+        # 获取前半段关键词
+        price1 = '>'
+        # 获取后半段关键词
+        price2 = '<'
+        pat = re.compile(w1 + '(.*?)' + w2, re.S)
+        price_pat = re.compile(price1 + '(.*?)' + price2, re.S)
         pat_ordertime = pat.findall(str(ordertime))
         pat_description = pat.findall(str(description))
-        info_ordertime = pat_ordertime[5]
-        info_description = pat_description[4]
-        print('订单时间:' + info_ordertime)
-        print('订单名称:' + info_description)
+        pat_price = price_pat.findall(str(price))
+        info_ordertime = pat_ordertime[1]
+        info_description = pat_description[0]
+        info_price = pat_price[0]
+        if language == 'zh_CN':
+            print('订单名称:' + info_description)
+            print('订单时间:' + info_ordertime)
+            print('订单金额:' + info_price)
+        else:
+            print('Order name:' + info_description)
+            print('Order time:' + info_ordertime)
+            print('Order amount:' + info_price)
+        '''try:
+            pat_ordertime = pat.findall(str(ordertime))
+            pat_description = pat.findall(str(description))
+            info_ordertime = pat_ordertime[5]
+            info_description = pat_description[4]
+            print('订单时间:' + info_ordertime)
+            print('订单名称:' + info_description)
+        except:
+            print('订单时间:无')
+            print('订单名称:无')'''
+
+        '''with open('ordertime.json', 'w') as f:
+            f.write(str(pat_ordertime))
+
+        with open('description.json', 'w') as f:
+            f.write(str(pat_description),encoding='utf-8')'''
     except:
-        print('订单时间:无')
-        print('订单名称:无')'''
-
-    '''with open('ordertime.json', 'w') as f:
-        f.write(str(pat_ordertime))
-
-    with open('description.json', 'w') as f:
-        f.write(str(pat_description),encoding='utf-8')'''
+        if language == 'zh_CN':
+            info_ordertime = "無"
+            info_description = "無"
+            info_price = "無"
+        else:
+            info_ordertime = "NONE"
+            info_description = "NONE"
+            info_price = "NONE"
 
 
 def autosupport():
