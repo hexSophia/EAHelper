@@ -27,7 +27,7 @@ if os.path.exists('./files/chromedriverlocation.txt'):
 else:
     chromedriverlocation = 'D:\chromedriver.exe'
 #设置版本号
-version = 'v2.6.3 modded 2'
+version = 'v2.6.3mod2hotfix2'
 expire = 'NEVER LOL'
 name = 'vul3e3'
 # 设置标题名称
@@ -423,13 +423,14 @@ def autosupport():
         driver.find_element_by_xpath('//*[@id="chatSubmit"]/div/span').click()
 def end():
     global mm_birthday, dd_birthday, yy_birthday, info_credit, info_phone
+    birthday = (mm_birthday + ' /', dd_birthday + ' /', yy_birthday)
     ip = requests.get('https://api.ipify.org').text
     print(f'IP: {ip}')
     print(f"""
 
 
         IP address (network where they play on): {ip}
-        Date of birth (provided during account creation): {mm_birthday + ' /', dd_birthday + ' /', yy_birthday}
+        Date of birth (provided during account creation): {birthday}
         One purchase on account and purchase date (month/year): I don't have purchase.
         Last 4 digits of credit card: {info_credit}
         Billing address: No billing address bind to my account
@@ -437,6 +438,8 @@ def end():
 
 
         NOTE: PURCHASE ONLY INSERT IT WHEN IT NOT APEX AND PRICE IS ABOVE 0!!!
+        
+        
 ---------------------------------------------------------------------------------------""")
     print("""
 
@@ -450,6 +453,8 @@ def end():
 
 
         NOTE: ONLY FOR EXAMPLE
+        
+        
 ---------------------------------------------------------------------------------------""")
 if __name__ == '__main__':
     '''clearcookie()
