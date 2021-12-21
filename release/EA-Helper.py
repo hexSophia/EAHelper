@@ -27,7 +27,7 @@ if os.path.exists('./files/chromedriverlocation.txt'):
 else:
     chromedriverlocation = 'D:\chromedriver.exe'
 #设置版本号
-version = 'v2.6.3mod2hotfix2'
+version = 'v2.6.3mod2hotfix3'
 expire = 'NEVER LOL'
 name = 'vul3e3'
 # 设置标题名称
@@ -423,7 +423,7 @@ def autosupport():
         driver.find_element_by_xpath('//*[@id="chatSubmit"]/div/span').click()
 def end():
     global mm_birthday, dd_birthday, yy_birthday, info_credit, info_phone
-    birthday = (mm_birthday + ' /', dd_birthday + ' /', yy_birthday)
+    birthday = (mm_birthday + ' /' + dd_birthday + ' /' + yy_birthday)
     ip = requests.get('https://api.ipify.org').text
     print(f'IP: {ip}')
     print(f"""
