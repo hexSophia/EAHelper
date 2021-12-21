@@ -158,6 +158,7 @@ def loginpage():
     else:
         pass
 def getprofile():
+    global mm_birthday, dd_birthday, yy_birthday, info_credit, info_phone
     try:
         driver.get("https://myaccount.ea.com/cp-ui/aboutme/index")
         html = driver.page_source
@@ -242,6 +243,7 @@ def getprofile():
 
 
 def getcreditcard():
+    global mm_birthday, dd_birthday, yy_birthday, info_credit, info_phone
     driver.get('https://myaccount.ea.com/cp-ui/paymentandshipping/index')
     html = driver.page_source
     bsoup = BeautifulSoup(html, "lxml")
@@ -295,6 +297,7 @@ def getconnections():
 
 
 def getorder():
+    global mm_birthday, dd_birthday, yy_birthday, info_credit, info_phone
     try:
         driver.get('https://myaccount.ea.com/cp-ui/orderhistory/index')
         # 选择已完成
@@ -350,7 +353,6 @@ def getorder():
         with open('description.json', 'w') as f:
             f.write(str(pat_description),encoding='utf-8')'''
     except:
-        order_info = "I don't have purchase."
         if language == 'zh_CN': 
             print('订单名称: 無')
             print('订单时间: 無')
@@ -420,33 +422,38 @@ def autosupport():
         # 点击请求实时聊天
         driver.find_element_by_xpath('//*[@id="chatSubmit"]/div/span').click()
 def end():
+    global mm_birthday, dd_birthday, yy_birthday, info_credit, info_phone
     ip = requests.get('https://api.ipify.org').text
     print(f'IP: {ip}')
     print(f"""
 
+
         IP address (network where they play on): {ip}
         Date of birth (provided during account creation): {mm_birthday + ' /', dd_birthday + ' /', yy_birthday}
-        One purchase on account and purchase date (month/year): {order_info}
+        One purchase on account and purchase date (month/year): I don't have purchase.
         Last 4 digits of credit card: {info_credit}
         Billing address: No billing address bind to my account
         Phone number: {info_phone}
 
 
----------------------------------------------------------------------""")
+        NOTE: PURCHASE ONLY INSERT IT WHEN IT NOT APEX AND PRICE IS ABOVE 0!!!
+---------------------------------------------------------------------------------------""")
     print("""
 
 
-    I lost my email, can you replace my email binding?
-    I can't access my email, can you replace my email binding?
-    My account is associated with the XX and XX platform.
-    I successfully logged in my account.
-    I created a new case.
-    Thank you very much for your help, I have changed the password of the account, I can log in to it.
+        I lost my email, can you replace my email binding?
+        I can't access my email, can you replace my email binding?
+        My account is associated with the XX and XX platform.
+        I successfully logged in my account.
+        I created a new case.
+        Thank you very much for your help, I have changed the password of the account, I can log in to it.
 
 
-""")
+        NOTE: ONLY FOR EXAMPLE
+---------------------------------------------------------------------------------------""")
 if __name__ == '__main__':
-    '''getmyip()
+    '''clearcookie()
+    time.sleep(1)
     getloginpge()
     time.sleep(1)
     loginpage()
@@ -458,6 +465,8 @@ if __name__ == '__main__':
     getorder()
     time.sleep(1)
     getconnections()
+    time.sleep(1)
+    end()
     time.sleep(1)
     autosupport()
     os.system("pause")
