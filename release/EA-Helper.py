@@ -27,7 +27,7 @@ if os.path.exists('./files/chromedriverlocation.txt'):
 else:
     chromedriverlocation = 'D:\chromedriver.exe'
 #设置版本号
-version = 'v2.6.3 modded hotfix5'
+version = 'v2.6.3 modded 2'
 expire = 'NEVER LOL'
 name = 'vul3e3'
 # 设置标题名称
@@ -208,6 +208,7 @@ def getprofile():
             else:
                 print('Phone:' + info_phone)
         except:
+            info_phone = 'No phone number bind to my account too'
             if language == 'zh_CN':
                 print('手机:无')
             else:
@@ -258,6 +259,7 @@ def getcreditcard():
         else:
             print('Credit Card:' + info_credit)
     except:
+        info_credit = "I don't have credit card bind to my origin account"
         if language == 'zh_CN':
             print('信用卡:无')
         else:
@@ -348,22 +350,15 @@ def getorder():
         with open('description.json', 'w') as f:
             f.write(str(pat_description),encoding='utf-8')'''
     except:
-        if language == 'zh_CN':
-            info_ordertime = "無"
-            info_description = "無"
-            info_price = "無"
+        order_info = "I don't have purchase."
+        if language == 'zh_CN': 
+            print('订单名称: 無')
+            print('订单时间: 無')
+            print('订单金额: 無')
         else:
-            info_ordertime = "NONE"
-            info_description = "NONE"
-            info_price = "NONE"
-        if language == 'zh_CN':
-            print('订单名称:' + info_description)
-            print('订单时间:' + info_ordertime)
-            print('订单金额:' + info_price)
-        else:
-            print('Order name:' + info_description)
-            print('Order time:' + info_ordertime)
-            print('Order amount:' + info_price)
+            print('Order name: NONE')
+            print('Order time: NONE')
+            print('Order amount: NONE')
 
 
 def autosupport():
@@ -425,7 +420,19 @@ def autosupport():
         # 点击请求实时聊天
         driver.find_element_by_xpath('//*[@id="chatSubmit"]/div/span').click()
 def end():
-    print('IP: ' + requests.get('https://api.ipify.org').text)
+    ip = requests.get('https://api.ipify.org').text
+    print(f'IP: {ip}')
+    print(f"""
+
+        IP address (network where they play on): {ip}
+        Date of birth (provided during account creation): {mm_birthday + ' /', dd_birthday + ' /', yy_birthday}
+        One purchase on account and purchase date (month/year): {order_info}
+        Last 4 digits of credit card: {info_credit}
+        Billing address: No billing address bind to my account
+        Phone number: {info_phone}
+
+
+---------------------------------------------------------------------""")
     print("""
 
 
