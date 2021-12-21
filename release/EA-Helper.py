@@ -27,7 +27,7 @@ if os.path.exists('./files/chromedriverlocation.txt'):
 else:
     chromedriverlocation = 'D:\chromedriver.exe'
 #设置版本号
-version = 'v2.6.3 modded hotfix2'
+version = 'v2.6.3 modded hotfix4'
 expire = 'NEVER LOL'
 name = 'vul3e3'
 # 设置标题名称
@@ -55,6 +55,7 @@ if language == 'zh_CN':
 
     region = input('请输入你想联系的客服国家(美国:en,加拿大:ca,印度:in,英国:uk):')
 
+    clearcookie = input('是否清理缓存(y/n)：')
     os.system('cls')
     print('正在获取数据,请耐心等待' + '\n' + '请在获取的过程中打开你的VPN')
 else:
@@ -64,6 +65,7 @@ else:
 
     region = input('Please enter the customer service country you want to contact (United States: en, Canada: ca, India: in, United Kingdom: uk):')
 
+    clearcookie = input('Clear Cookies?(y/n)：')
     os.system('cls')
     print('Data is being obtained, please wait patiently')
 
@@ -95,6 +97,15 @@ option.add_experimental_option('excludeSwitches', ['enable-logging'])
 option.add_argument('--headless')
 # 打开谷歌浏览器
 driver = webdriver.Chrome(executable_path=chromedriverlocation, options=option)
+def clearcookies():
+    if clearcookie == 'y':
+        driver.delete_all_cookies()
+        if language == 'zh_CN':
+            print('清理完毕')
+        else:
+            print('Cleaned Cookies')
+    else:
+        pass
 
 def getloginpge():
     # 打开商店页面
