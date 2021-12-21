@@ -27,7 +27,7 @@ if os.path.exists('./files/chromedriverlocation.txt'):
 else:
     chromedriverlocation = 'D:\chromedriver.exe'
 #设置版本号
-version = 'v2.6.3 modded hotfix4'
+version = 'v2.6.3 modded hotfix5'
 expire = 'NEVER LOL'
 name = 'vul3e3'
 # 设置标题名称
@@ -97,7 +97,8 @@ option.add_experimental_option('excludeSwitches', ['enable-logging'])
 option.add_argument('--headless')
 # 打开谷歌浏览器
 driver = webdriver.Chrome(executable_path=chromedriverlocation, options=option)
-def clearcookies():
+
+def clearcookie():
     if clearcookie == 'y':
         driver.delete_all_cookies()
         if language == 'zh_CN':
@@ -355,6 +356,14 @@ def getorder():
             info_ordertime = "NONE"
             info_description = "NONE"
             info_price = "NONE"
+        if language == 'zh_CN':
+            print('订单名称:' + info_description)
+            print('订单时间:' + info_ordertime)
+            print('订单金额:' + info_price)
+        else:
+            print('Order name:' + info_description)
+            print('Order time:' + info_ordertime)
+            print('Order amount:' + info_price)
 
 
 def autosupport():
@@ -447,6 +456,8 @@ if __name__ == '__main__':
     os.system("pause")
     exit()'''
     try:
+        clearcookie()
+        time.sleep(1)
         getloginpge()
         time.sleep(1)
         loginpage()
