@@ -12,11 +12,15 @@ from Crypto.PublicKey import RSA
 from bs4 import BeautifulSoup
 from selenium import webdriver
 #设置版本号
-version = '2.6.3'
+version = '2.6.4'
 
 # 设置标题名称
 os.system("title EA Helper Premium V" + version + " Coder:YinBuLiao")
 
+#设置软件网址
+website = 'https://api.loli.taxi/'
+
+#网站访问headers设置
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
 }
@@ -46,8 +50,9 @@ def getCVolumeSerialNumber():
     if CVolumeSerialNumber:
         return str(CVolumeSerialNumber)
     return None
+
 #更新检测
-update = requests.get('https://ea-helper.com/adminpanel/api/getversion.php')
+update = requests.get(website + 'adminpanel/api/getversion.php')
 if version in update.text:
     pass
 else:
@@ -70,7 +75,6 @@ try:
         line2 = f.readline()
         name = line1.rstrip()
         pwd = line2.rstrip()
-    website = 'https://ea-helper.com/'
     account_url = requests.get(website + 'verification.php?username=' + name + '&password=' + pwd)
     encrypt_text = account_url.text
     account_url = cipher.decrypt(base64.b64decode(encrypt_text), random_generator)
@@ -92,7 +96,7 @@ try:
     pat = re.compile(w1 + '(.*?)' + w2, re.S)
     version = pat.findall(str(version))
     version = version[0]
-    if 'success' in account_url.decode('utf-8'):
+    if name in account_url.decode('utf-8'):
         if 'nosub' in expire.decode('utf-8'):
             if language == 'zh_CN':
                 print('对不起您的权限不够')
@@ -162,7 +166,6 @@ except:
         print('The forum account is not your email but your username')
         forum_username = input('Please enter the forum account：')
         forum_password = input('Please enter the forum password：')
-    website = 'https://ea-helper.com/'
     account_url = requests.get(
         website + 'verification.php?username=' + forum_username + '&password=' + forum_password)
     encrypt_text = account_url.text
@@ -185,7 +188,7 @@ except:
     pat = re.compile(w1 + '(.*?)' + w2, re.S)
     version = pat.findall(str(version))
     version = version[0]
-    if 'success' in account_url.decode('utf-8'):
+    if forum_username in account_url.decode('utf-8'):
         if 'nosub' in expire.decode('utf-8'):
             if language == 'zh_CN':
                 print('对不起您的权限不够')
