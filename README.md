@@ -11,7 +11,12 @@ and you got source code!
 
 
 # How to use this source code?
-the best way is using **[Google](https://google.com)**
+Fisrt you need to remove the auth code, And then type these command:\
+\
+**pip uninstall selenium** # Uninstall newest selenium\
+**pip install selenium==3.141.0** # Install #3.141.0 With best stable and working perfect at this source code\
+**pip install html5lib** # Intall something for this code\
+**pip install lxml** # Intall something for this code
 
 
 # How to use crack release?
