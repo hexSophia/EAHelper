@@ -1,6 +1,6 @@
 # EAHelper
 EA Helper Source Code
-
+# PUBLIC NOW
 # How to Crack?
 very easy, they using pyinstaller\
 just using **[pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor)** to unpack exe\
@@ -27,11 +27,11 @@ you now need create a folder call **files** with **chromedriverlocation.txt** an
 
 
 # Why you release this?
-because it funny
+because it funny\
 
 
 # Files (Newest version)
-*Ver2.6.3*\
+*Ver2.6.4*\
 \
 **obs-orig.py** - decompile from obs.pyc, has b64 suck encrypt lol\
 **obs-b64decompile** - decompile from b64, the **real source**
