@@ -2,6 +2,9 @@
 EA Helper Source Code
 # PUBLIC NOW
 # How to Crack?
+**PATCHED, THIS CRACK IS FOR OLD VERSION**\
+\
+\
 very easy, they using pyinstaller\
 just using **[pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor)** to unpack exe\
 and use **[pycdc](https://github.com/zrax/pycdc)** decompile obs.pyc\
