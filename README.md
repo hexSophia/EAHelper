@@ -1,6 +1,14 @@
 # EAHelper
 EA Helper Source Code
 # PUBLIC NOW
+
+
+# Why no more crack?
+I would continue crack if ea helper public their auto change, and this version actually same as newest version from annoucement (2.6.8)\
+And if you guys have beta file or something, send to me, i would trying to crack it, but no more source code, because he wasnt using base64 anymore, might just crack by using inject dll\
+also, it doesnt have many updates on normal version, i don't know about beta version, but normal version doesn't have any useful update, just many bugs fix.
+
+
 # How to Crack?
 **PATCHED, THIS CRACK IS FOR OLD VERSION**\
 \
